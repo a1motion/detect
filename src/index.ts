@@ -23,7 +23,7 @@ export default (() => {
     ie: /*@cc_on!@*/ false || !!document.documentMode,
     safari:
       /constructor/i.test(window.HTMLElement) ||
-      (function(p) {
+      (p => {
         return p.toString() === "[object SafariRemoteNotification]";
       })(
         !window.safari ||
@@ -43,6 +43,6 @@ export default (() => {
     android,
     linux,
     desktop: mac || win || linux,
-    mobile: ios || android
+    mobile: android || ios,
   };
 })();
